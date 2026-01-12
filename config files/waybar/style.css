@@ -230,6 +230,8 @@ window#waybar{
     background: @module-bg;
 }
 
+
+
 #tray{
     background: @module-bg;
     border-radius: 8px;
@@ -237,3 +239,4 @@ window#waybar{
     margin-right: 20px;
 
 }
+
