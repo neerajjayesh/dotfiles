@@ -29,7 +29,8 @@
     "bluetooth",            // bluetooth
     "network",
     "battery",              // battery
-    "tray"
+    "tray",
+    "custom/powermenu"
   ],
 
   // <<--< Modules >-->>
@@ -54,12 +55,16 @@
     "rewrite": {
       // Desktop
       "": 
-        "<span foreground='#89b4fa'> </span> Hyprland",
+        "<span foreground='#89b4fa'> </span> Whai-land",
 
       // Terminal
       "~": "  Terminal",
       "zsh": "  Terminal",
       "kitty": "  Terminal",
+
+      ".*@.*":
+      "<span foreground='#a6e3a1'> </span> Terminal",
+
 
       "tmux(.*)": 
         "<span foreground='#a6e3a1'> </span> Tmux",
@@ -183,7 +188,7 @@
       "deactivated": "󰈉 "
     },
 
-    "tooltip-format-activated": "Presentation Mode",
+    "tooltip-format-activated": "Caffine Mode",
     "tooltip-format-deactivated": "Idle Mode",
     "start-activated": false
   },
@@ -223,16 +228,16 @@
     "on-click": "kitty --title '󰤨  Network Manager TUI' bash -c nmtui",
     "format": "{ifname}",
     "format-wifi": "   {signalStrength}%",
-    "format-ethernet": "󰊗 {ipaddr}/{cidr}",
+    "format-ethernet": "󰌗  Ethernet",
     "format-disconnected": "󰖪 0%", 
-    "tooltip-format": "{essid} {ifname} via {gwaddr} 󰊗",
+    "tooltip-format": "󰌙 Disconnected",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected"
   },
 
   "bluetooth": {
-    "format": "󰂰",
+    "format": "",
     "format-disabled": "󰂲",
     "format-connected": "󰂱",
     "format-connected-battery": "󰂱",
@@ -282,7 +287,7 @@
     },
     "tooltip-format": "Device: {desc}",
     "on-click": "~/.config/waybar/scripts/volume-control.sh -o m",
-    "on-click-right": "pwvucontrol",
+    "on-click-right": "pavucontrol",
     "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh -o i",
     "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh -o d",
     "min-length": 6,
@@ -316,9 +321,15 @@
     "max-length": 10
   },
 
+  "custom/powermenu": {
+    "exec": "echo '⏻'",         // Power icon
+    "interval": 0,
+    "tooltip": "Power Menu",
+    "on-click": "~/.config/waybar/scripts/powermenu.sh"
+},
     "tray": {
     "icon-size": 18,
     "spacing": 10,
     "show-passive-items": true
-  },
+  }
 }
